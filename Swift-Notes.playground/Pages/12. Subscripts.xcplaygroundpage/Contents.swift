@@ -36,7 +36,7 @@ struct Food {
     
     var meals: [MealTime: String] = [:]
     
-    subscript (type: MealTime) -> String? {
+    subscript (type: MealTime, day: Int) -> String? {
         get {
             return meals[type]
         }
@@ -47,10 +47,10 @@ struct Food {
 }
 
 var diet = Food()
-diet[.Breakfast] = "Scrambled Eggs"
-diet[.Lunch] = "Rice"
+diet[.Breakfast, 0] = "Scrambled Eggs"
+diet[.Lunch, 1] = "Rice"
 
-print("I had \(diet[.Breakfast]) for breakfast")
+print("I had \(diet[.Breakfast, 1]) for breakfast")
 
 
 //: ----
