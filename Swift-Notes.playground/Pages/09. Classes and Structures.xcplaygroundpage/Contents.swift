@@ -29,19 +29,24 @@
 //Syntax
 
 struct CombatSkill {
+    
     var strength = 0
     var agility = 0
     var stamina = 0
     var speed = 0
     
     var knowsMagic = false
+    
 }
 
-class Warrior{
+class Warrior {
+    
     var skill = CombatSkill()
     var name: String?
     var nickName: String?
+    
 }
+
 
 //Instances
 var fighter = Warrior()
@@ -63,6 +68,7 @@ print(fighter.skill.speed)
 //: ### Memberwise initializer for Structures
 
 let arthurSkills = CombatSkill(strength: 97, agility: 98, stamina: 89, speed: 90, knowsMagic: false)
+
 fighter.skill = arthurSkills
 
 print(fighter.skill.speed)

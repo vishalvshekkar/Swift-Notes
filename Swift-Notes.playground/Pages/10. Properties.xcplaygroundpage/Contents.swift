@@ -23,7 +23,7 @@ let screenSize = Size(width: 640, height: 960)
 //: It is not possible to change the value of `width` even though it is declared as `var` property. This is because structures are ***value types***. When an instance of a value type is marked as a constant, so are all of its properties.
 // Same is not true for classes. (As seen in prev. chapter.)
 
-
+///Add Block based stored property
 //: ### Lazy Properties
 //: A lazy stored property is a property whose initial value is not calculated until the first time it is used.
 
@@ -73,10 +73,10 @@ struct Cube {
     var edge: Double = 0
     
     var volume: Double {
-        get{
+        get {
             return edge * edge * edge
         }
-        set (newVolume){
+        set (newVolume) {
             let power: Double = (1/3)
             edge = pow(newVolume, power)
         }
@@ -155,9 +155,11 @@ niceCube.simplerDescription
 struct TalkingSquare {
     var edge: Double {
         willSet {
-            print("Edge gonna change.")
+            print(edge)
+            print("Edge gonna change to \(newValue) from \(edge)")
         }
         didSet {
+            print(edge)
             print("Edge changed from \(oldValue) to \(edge)")
         }
     }
@@ -207,6 +209,18 @@ class Raven {
         return 2
     }
 }
+
+//class Zombie: Raven {
+//    
+//    override class var numberOfEyes: Int {
+//        return 3
+//    }
+//    
+//    override static var numberOfWings: Int {
+//        return 3
+//    }
+//    
+//}
 
 Raven.eyeColor
 Raven.numberOfWings
